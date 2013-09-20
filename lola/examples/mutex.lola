@@ -1,0 +1,40 @@
+PLACE
+	idle_0, request_0, critical_0,
+	idle_1, request_1, critical_1,
+	sem;
+
+MARKING
+	idle_0: 1, idle_1: 1,
+	sem: 1;
+
+TRANSITION g0_0
+	CONSUME idle_0: 1;
+	PRODUCE idle_0: 1;
+
+TRANSITION g1_0
+	CONSUME idle_0: 1;
+	PRODUCE request_0: 1;
+
+TRANSITION g2_0
+	CONSUME request_0: 1, sem: 1;
+	PRODUCE critical_0: 1;
+
+TRANSITION g3_0
+	CONSUME critical_0: 1;
+	PRODUCE idle_0: 1, sem: 1;
+
+TRANSITION g0_1
+	CONSUME idle_1: 1;
+	PRODUCE idle_1: 1;
+
+TRANSITION g1_1
+	CONSUME idle_1: 1;
+	PRODUCE request_1: 1;
+
+TRANSITION g2_1
+	CONSUME request_1: 1, sem: 1;
+	PRODUCE critical_1: 1;
+
+TRANSITION g3_1
+	CONSUME critical_1: 1;
+	PRODUCE idle_1: 1, sem: 1;

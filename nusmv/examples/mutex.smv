@@ -1,0 +1,37 @@
+MODULE main
+    VAR
+        sem : {0, 1};
+        proc1: process user(sem);
+        proc2: process user(sem);
+    ASSIGN
+        init(sem) := 1;
+
+LTLSPEC G (proc1.pc != critical | proc2.pc != critical)
+LTLSPEC G (proc1.pc = request -> F (proc1.pc = critical))
+LTLSPEC G F (proc1.pc != critical)
+LTLSPEC (G F (proc1.pc = request & sem = 1)) -> (G F (proc1.pc = critical))
+
+MODULE user(sem)
+    VAR
+        pc: {idle, request, critical};
+    ASSIGN
+        init(pc) := idle;
+        next(pc) :=
+            case
+                pc = idle              : {idle, request};
+                pc = request & sem = 1 : critical;
+                pc = critical          : idle;
+                TRUE                   : pc;
+            esac;
+        next(sem) :=
+            case
+                pc = request  : 0;
+                pc = critical : 1;
+                TRUE          : sem;
+            esac;
+
+FAIRNESS
+    running;
+
+COMPASSION
+    (pc = request, pc = critical);
