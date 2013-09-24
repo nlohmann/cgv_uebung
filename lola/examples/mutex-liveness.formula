@@ -1,0 +1,2 @@
+FORMULA
+  ALLPATH ALWAYS ((request.0 = 0) OR (EXPATH EVENTUALLY critical.0 = 1))

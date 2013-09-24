@@ -1,4 +1,4 @@
-SORT pid = [ 1 , 20 ];
+SORT pid = [ 0 , 1 ];
 
 FUNCTION all(): pid
 	VAR x: pid;
@@ -26,12 +26,12 @@ TRANSITION g1
 	CONSUME idle: x;
 	PRODUCE request: x;
 
-TRANSITION g2
+TRANSITION g2 STRONG FAIR
 	VAR x: pid;
 	CONSUME request: x, sem: 1;
 	PRODUCE critical: x;
 
-TRANSITION g3
+TRANSITION g3 WEAK FAIR
 	VAR x: pid;
 	CONSUME critical: x;
 	PRODUCE idle: x, sem: 1;
