@@ -2,27 +2,33 @@ mtype = {idle, request, critical};
 mtype pc[2];
 int sem;
 
-proctype user(int id) {
-    pc[id] = idle;
+active [2] proctype user() {
+    pc[_pid] = idle;
 
+again:
     atomic {
-        do
-        :: pc[id] == idle
-            -> pc[id] = idle; break;
-        :: pc[id] == idle
-            -> pc[id] = request; break;
-        :: pc[id] == request && sem == 1
-            -> sem = 0; pc[id] = critical; break;
-        :: pc[id] == critical
-            -> sem = 1; pc[id] = idle; break;
-        od
+        if
+        :: pc[_pid] == idle
+            -> pc[_pid] = idle;
+        :: pc[_pid] == idle
+            -> pc[_pid] = request;
+        :: pc[_pid] == request && sem == 1
+            -> sem = 0; pc[_pid] = critical;
+        :: pc[_pid] == critical
+            -> sem = 1; pc[_pid] = idle;
+        fi;
     }
+    goto again;
 }
 
 init {
     sem = 1;
-    atomic {
-        run user(0);
-        run user(1);
-    }
+}
+
+ltl safety {
+    [] (pc[0] != critical || pc[1] != critical)
+}
+
+ltl liveness {
+    [] ((pc[0] == request) -> (<> (pc[0] == critical)))
 }
