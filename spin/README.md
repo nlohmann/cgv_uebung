@@ -7,6 +7,7 @@
 - Reduktionstechniken: Partial Order Reduction, BDD-ähnliche Speicherung
 - URL: http://spinroot.com/spin/whatispin.html
 - aktuelle Version: 6.2.5 (Mai 2013)
+- Lizenz: frei für wissenschaftliche Zwecke, ansonsten [SPIN Commercial License](http://www.spinroot.com/spin/spin_license.html)
 
 ## Installation
 

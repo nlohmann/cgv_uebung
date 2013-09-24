@@ -8,6 +8,7 @@
 - weitere Funktionalität: Simulator
 - URL: http://nusmv.fbk.eu
 - aktuelle Version: 2.5.4 (Oktober 2011)
+- Lizenz: [GNU Lesser General Public License (LGPL)](https://www.gnu.org/licenses/lgpl.html)
 
 ## Installation
 
