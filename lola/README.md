@@ -45,42 +45,42 @@ Zu diesem Netz gibt es verschiedene folgende Formel-Dateien, die mit unterschied
   
   Diese CTL-Formel drückt aus, dass nur ein Prozess gleichzeitig im kritischen Zustand sein kann.
   
-      $ lola-modelchecking mutex.lola --analysis=mutex-safety.formula
-      lola: 7 places
-      lola: 8 transitions
-      lola: 4 significant places
-     
-      Formula with 
-      4 subformulas
-      and 1 temporal operators.
-     
-      result: true
-      lola: >>>>> 6 States, 10 Edges, 6 Hash table entries
+            $ lola-modelchecking mutex.lola --analysis=mutex-safety.formula
+            lola: 7 places
+            lola: 8 transitions
+            lola: 4 significant places
+            
+            Formula with 
+            4 subformulas
+            and 1 temporal operators.
+            
+            result: true
+            lola: >>>>> 6 States, 10 Edges, 6 Hash table entries
 
 - `mutex-liveness.formula`
 
   Diese CTL-Formel drückt aus, dass jeder Prozess, der den kritischen Zustand betreten will, ihn auch irgendwann betritt.
 
-      $ lola-modelchecking mutex.lola --analysis=mutex-liveness.formula
-      lola: 7 places
-      lola: 8 transitions
-      lola: 4 significant places
-    
-      Formula with 
-      5 subformulas
-      and 2 temporal operators.
-    
-      result: true
-      lola: >>>>> 8 States, 22 Edges, 8 Hash table entries
+            $ lola-modelchecking mutex.lola --analysis=mutex-liveness.formula
+            lola: 7 places
+            lola: 8 transitions
+            lola: 4 significant places
+            
+            Formula with 
+            5 subformulas
+            and 2 temporal operators.
+            
+            result: true
+            lola: >>>>> 8 States, 22 Edges, 8 Hash table entries
 
 - `mutex-gf.formula`
 
   Dieses Zustandsprädikat sagt aus dass sich kein Prozess im kritischen Zustand befindet. Wir wollen überprüfen, ob dies unendlich oft gilt, also den LTL-Operator *GF* nutzen:
 
-      $ lola-fairprop mutex_hl.lola --analysis=mutex-gf.formula 
-      lola: 7 places
-      lola: 8 transitions
-      lola: 4 significant places
-      lola: Formula with 3 subformula(s) (WITHFORMULA)
-      lola: GF phi holds!
-      lola: >>>>> 8 States, 20 Edges, 8 Hash table entries
+            $ lola-fairprop mutex_hl.lola --analysis=mutex-gf.formula 
+            lola: 7 places
+            lola: 8 transitions
+            lola: 4 significant places
+            lola: Formula with 3 subformula(s) (WITHFORMULA)
+            lola: GF phi holds!
+            lola: >>>>> 8 States, 20 Edges, 8 Hash table entries
