@@ -6,8 +6,8 @@
 - weitere Eigenschaften: Deadlocks, Beschränktheit, Reversibilität
 - Reduktionstechniken: Partial Order Reduction, Symmetrie, Sweep Line
 - URL: http://wwwteo.informatik.uni-rostock.de/tpp/lola/
-- aktuelle Version: 1.16 (Juni 2011)
-- Lizenz: AGPL
+- aktuelle Version: 1.17 (September 2013)
+- Lizenz: [GNU Affero GPL](http://www.gnu.org/licenses/agpl-3.0.html)
 
 ## Installation
 
@@ -56,31 +56,37 @@ Zu diesem Netz gibt es verschiedene folgende Formel-Dateien, die mit unterschied
         
         result: true
         lola: >>>>> 6 States, 10 Edges, 6 Hash table entries
+  
+  Statt der Forderung, dass einer der Prozesse nicht im kritischen Zustand ist, hätte auch überprüft werden können, ob es einen Zustand gibt, in dem beide Prozesse im kritischen Bereich sind.
 
 - `mutex-liveness.formula`
 
   Diese CTL-Formel drückt aus, dass jeder Prozess, der den kritischen Zustand betreten will, ihn auch irgendwann betritt.
 
-            $ lola-modelchecking mutex.lola --analysis=mutex-liveness.formula
-            lola: 7 places
-            lola: 8 transitions
-            lola: 4 significant places
-            
-            Formula with 
-            5 subformulas
-            and 2 temporal operators.
-            
-            result: true
-            lola: >>>>> 8 States, 22 Edges, 8 Hash table entries
+        $ lola-modelchecking mutex.lola --analysis=mutex-liveness.formula
+        lola: 7 places
+        lola: 8 transitions
+        lola: 4 significant places
+        
+        Formula with 
+        5 subformulas
+        and 2 temporal operators.
+        
+        result: true
+        lola: >>>>> 8 States, 22 Edges, 8 Hash table entries
+  
+  Wegen eines kleinen Bugs in der Formelsprache kann die Originalformel nicht mit einer Implikation ausgedrückt werden. Stattdessen wurde sie mit einer Disjunktion ausgedrückt.
 
 - `mutex-gf.formula`
 
-  Dieses Zustandsprädikat sagt aus dass sich kein Prozess im kritischen Zustand befindet. Wir wollen überprüfen, ob dies unendlich oft gilt, also den LTL-Operator *GF* nutzen:
+  Dieses Zustandsprädikat sagt aus dass sich kein Prozess im kritischen Zustand befindet. Wir wollen überprüfen, ob dies unendlich oft gilt, also den LTL-Operator GF nutzen:
 
-            $ lola-fairprop mutex_hl.lola --analysis=mutex-gf.formula 
-            lola: 7 places
-            lola: 8 transitions
-            lola: 4 significant places
-            lola: Formula with 3 subformula(s) (WITHFORMULA)
-            lola: GF phi holds!
-            lola: >>>>> 8 States, 20 Edges, 8 Hash table entries
+        $ lola-fairprop mutex_hl.lola --analysis=mutex-gf.formula 
+        lola: 7 places
+        lola: 8 transitions
+        lola: 4 significant places
+        lola: Formula with 3 subformula(s) (WITHFORMULA)
+        lola: GF phi holds!
+        lola: >>>>> 8 States, 20 Edges, 8 Hash table entries
+  
+  Der LTL-GF-Operator ist also fest im Aufruf `lola-fairprop` verdrahtet und muss nicht in der Formeldatei als `ALWAYS EVENTUALLY` angegeben werden. Für die Überprüfung sind die Fairness-Angaben in der Netzdatei wichtig, da ohne sie evtl. "unfaire" Gegenbeispiele gefunden werden.
