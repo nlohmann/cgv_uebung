@@ -11,6 +11,8 @@
 
 ## Installation
 
+### Alle Betriebssysteme
+
 LoLA kann am besten direkt aus den Quellen übersetzt werden:
 
     tar xfz lola-1.17.tar.gz
@@ -20,3 +22,13 @@ LoLA kann am besten direkt aus den Quellen übersetzt werden:
 
 Es werden dann verschiedene Konfigurationen im Verzeichnis `lola-1.17/src` erzeugt.
 
+### OS X
+
+Unter OS X kann LoLA mit dem Paketmanager [Homebrew](http://brew.sh) installiert werden:
+
+    # install Homebrew
+    ruby -e "$(curl -fsSL https://raw.github.com/mxcl/homebrew/go)"
+    # tap science formulas
+    brew tap homebrew/science 
+    # install LoLA
+    brew install lola
