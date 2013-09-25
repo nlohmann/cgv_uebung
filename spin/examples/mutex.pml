@@ -30,5 +30,7 @@ ltl safety {
 }
 
 ltl liveness {
-    [] ((pc[0] == request) -> (<> (pc[0] == critical)))
+    (([]<> (pc[0] == request && sem == 1)) -> ([]<> (pc[0] == critical)))
+        ->
+    ([] ((pc[0] == request) -> (<> (pc[0] == critical))))
 }
