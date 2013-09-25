@@ -14,20 +14,39 @@
 
 ## Installation
 
-### Alle Betriebssysteme
+Die Installation von NuSMV ist nicht trivial, da es von den Paketen CuDD (für BDDs) und ZChaff (für SAT-Checking) abhängt. Das Ergebnis ist dann eine ausführbare Datei `NuSMV`.
 
-Die Installation von NuSMV ist nicht trivial, da es von den Paketen CuDD (für BDDs) und ZChaff (für SAT-Checking) abhängt. Mit folgenden Befehlen funktioniert die Installation beispielhaft für OS X:
+### Linux
+
+    tar xfz NuSMV-2.5.4.tar.gz
+    cd NuSMV-2.5.4
+    sed -i 's/O6/O2/g' cudd-2.4.1.1/Makefile_os_x_64bit
+    make -C cudd-2.4.1.1 --file=Makefile_os_x_64bit
+    cd zchaff ; ./build.sh ; cd ..
+    echo "#include <cstring>" > tmp
+    cat zchaff/zchaff64/sat_solver.cpp >> tmp
+    mv tmp zchaff/zchaff64/sat_solver.cpp
+    make -C zchaff/zchaff64
+    cd nusmv && ./configure --enable-zchaff ; make
+
+### Solaris
 
     tar xfz NuSMV-2.5.4.tar.gz
     cd NuSMV-2.5.4
     gsed -i 's/O6/O2/g' cudd-2.4.1.1/Makefile_os_x_64bit
     make -C cudd-2.4.1.1 --file=Makefile_os_x_64bit
-    cd zchaff ; ./build.sh ; cd ..
+    gsed -i 's/gnumake/make/g' MiniSat/gen_maker.sh
+    cd zchaff
+    ./build.sh
+    unzip zchaff.64bit.2007.3.12.zip
+    ./build.sh
+    cd ..
+    echo "#include <cstring>" > tmp
+    cat zchaff/zchaff64/sat_solver.cpp >> tmp
+    mv tmp zchaff/zchaff64/sat_solver.cpp
     make -C zchaff/zchaff64
     cd nusmv && ./configure --enable-zchaff ; make
-
-Es wird dann die ausführbare Datei `NuSMV` erzeugt.
-
+    
 ### OS X
 
 Unter OS X kann NuSMV mit dem Paketmanager [Homebrew](http://brew.sh) installiert werden:
@@ -38,6 +57,16 @@ Unter OS X kann NuSMV mit dem Paketmanager [Homebrew](http://brew.sh) installier
     brew tap homebrew/science 
     # install NuSMV
     brew install nusmv
+
+*Alternativ* kann direkt von den Quellen übersetzt werden:
+
+    tar xfz NuSMV-2.5.4.tar.gz
+    cd NuSMV-2.5.4
+    gsed -i 's/O6/O2/g' cudd-2.4.1.1/Makefile_os_x_64bit
+    make -C cudd-2.4.1.1 --file=Makefile_os_x_64bit
+    cd zchaff ; ./build.sh ; cd ..
+    make -C zchaff/zchaff64
+    cd nusmv && ./configure --enable-zchaff ; make
 
 ## Beispiele
 

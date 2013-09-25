@@ -13,15 +13,25 @@
 
 ## Installation
 
-### Alle Betriebssysteme
+Spin kann direkt aus den Quellen übersetzt werden. Allerdings sind ein paar kleine Änderungen an den Quellen notwendig. Das Ergebnis ist dann eine ausführbare Datei `spin` und ein Shellscript `ispin` für die GUI.
 
-Die Installation von Spin sollte leicht von der Hand gehen:
+### Linux
 
     tar xfz spin625.tar.gz 
     cd Spin/Src6.2.5
+    sed -i 's/y?/spin./g' makefile
+    make spin.o YACC=bison
+    mv spin.tab.h y.tab.h
     make
 
-Es wird dann die ausführbare Datei `spin` erzeugt.
+### Solaris
+
+    tar xfz spin625.tar.gz 
+    cd Spin/Src6.2.5
+    gsed -i 's/y?/spin./g' makefile
+    make spin.o YACC=bison
+    mv spin.tab.h y.tab.h
+    make
 
 ### OS X
 
@@ -31,6 +41,12 @@ Unter OS X kann Spin mit dem Paketmanager [Homebrew](http://brew.sh) installiert
     ruby -e "$(curl -fsSL https://raw.github.com/mxcl/homebrew/go)"
     # install Spin
     brew install spin
+
+*Alternativ* kann direkt von den Quellen übersetzt werden:
+
+    tar xfz spin625.tar.gz 
+    cd Spin/Src6.2.5
+    make
 
 ## Beispiele
 

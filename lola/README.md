@@ -15,7 +15,7 @@
 
 ### Alle Betriebssysteme
 
-LoLA kann am besten direkt aus den Quellen übersetzt werden:
+LoLA kann direkt aus den Quellen übersetzt werden:
 
     tar xfz lola-1.17.tar.gz
     cd lola-1.17
