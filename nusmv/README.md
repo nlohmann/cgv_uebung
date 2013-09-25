@@ -18,55 +18,63 @@ Die Installation von NuSMV ist nicht trivial, da es von den Paketen CuDD (für B
 
 ### Linux
 
-    tar xfz NuSMV-2.5.4.tar.gz
-    cd NuSMV-2.5.4
-    sed -i 's/O6/O2/g' cudd-2.4.1.1/Makefile_os_x_64bit
-    make -C cudd-2.4.1.1 --file=Makefile_os_x_64bit
-    cd zchaff ; ./build.sh ; cd ..
-    echo "#include <cstring>" > tmp
-    cat zchaff/zchaff64/sat_solver.cpp >> tmp
-    mv tmp zchaff/zchaff64/sat_solver.cpp
-    make -C zchaff/zchaff64
-    cd nusmv && ./configure --enable-zchaff ; make
+```bash
+tar xfz NuSMV-2.5.4.tar.gz
+cd NuSMV-2.5.4
+sed -i 's/O6/O2/g' cudd-2.4.1.1/Makefile_os_x_64bit
+make -C cudd-2.4.1.1 --file=Makefile_os_x_64bit
+cd zchaff ; ./build.sh ; cd ..
+echo "#include <cstring>" > tmp
+cat zchaff/zchaff64/sat_solver.cpp >> tmp
+mv tmp zchaff/zchaff64/sat_solver.cpp
+make -C zchaff/zchaff64
+cd nusmv && ./configure --enable-zchaff ; make
+```
 
 ### Solaris
 
-    tar xfz NuSMV-2.5.4.tar.gz
-    cd NuSMV-2.5.4
-    gsed -i 's/O6/O2/g' cudd-2.4.1.1/Makefile_os_x_64bit
-    make -C cudd-2.4.1.1 --file=Makefile_os_x_64bit
-    gsed -i 's/gnumake/make/g' MiniSat/gen_maker.sh
-    cd zchaff
-    ./build.sh
-    unzip zchaff.64bit.2007.3.12.zip
-    ./build.sh
-    cd ..
-    echo "#include <cstring>" > tmp
-    cat zchaff/zchaff64/sat_solver.cpp >> tmp
-    mv tmp zchaff/zchaff64/sat_solver.cpp
-    make -C zchaff/zchaff64
-    cd nusmv && ./configure --enable-zchaff ; make
+```bash
+tar xfz NuSMV-2.5.4.tar.gz
+cd NuSMV-2.5.4
+gsed -i 's/O6/O2/g' cudd-2.4.1.1/Makefile_os_x_64bit
+make -C cudd-2.4.1.1 --file=Makefile_os_x_64bit
+gsed -i 's/gnumake/make/g' MiniSat/gen_maker.sh
+cd zchaff
+./build.sh
+unzip zchaff.64bit.2007.3.12.zip
+./build.sh
+cd ..
+echo "#include <cstring>" > tmp
+cat zchaff/zchaff64/sat_solver.cpp >> tmp
+mv tmp zchaff/zchaff64/sat_solver.cpp
+make -C zchaff/zchaff64
+cd nusmv && ./configure --enable-zchaff ; make
+```
     
 ### OS X
 
 Unter OS X kann NuSMV mit dem Paketmanager [Homebrew](http://brew.sh) installiert werden:
 
-    # install Homebrew
-    ruby -e "$(curl -fsSL https://raw.github.com/mxcl/homebrew/go)"
-    # tap science formulas
-    brew tap homebrew/science 
-    # install NuSMV
-    brew install nusmv
+```bash
+# install Homebrew
+ruby -e "$(curl -fsSL https://raw.github.com/mxcl/homebrew/go)"
+# tap science formulas
+brew tap homebrew/science 
+# install NuSMV
+brew install nusmv
+```
 
 *Alternativ* kann direkt von den Quellen übersetzt werden:
 
-    tar xfz NuSMV-2.5.4.tar.gz
-    cd NuSMV-2.5.4
-    gsed -i 's/O6/O2/g' cudd-2.4.1.1/Makefile_os_x_64bit
-    make -C cudd-2.4.1.1 --file=Makefile_os_x_64bit
-    cd zchaff ; ./build.sh ; cd ..
-    make -C zchaff/zchaff64
-    cd nusmv && ./configure --enable-zchaff ; make
+```bash
+tar xfz NuSMV-2.5.4.tar.gz
+cd NuSMV-2.5.4
+gsed -i 's/O6/O2/g' cudd-2.4.1.1/Makefile_os_x_64bit
+make -C cudd-2.4.1.1 --file=Makefile_os_x_64bit
+cd zchaff ; ./build.sh ; cd ..
+make -C zchaff/zchaff64
+cd nusmv && ./configure --enable-zchaff ; make
+```
 
 ## Beispiele
 
