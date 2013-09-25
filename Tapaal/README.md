@@ -1,4 +1,4 @@
-# Tappaal
+# Tapaal
 
 - Typ: expliziter Modelchecker
 - Modell: Zeitpetrinetze (Timed-Arc Petri Nets)
@@ -10,8 +10,16 @@
 - aktuelle Version: 2.4.0 (September 2013)
 - Lizenz: [Open Source License 3.0](http://www.opensource.org/licenses/osl-3.0.php) (GUI), [BSD License](http://www.opensource.org/licenses/bsd-license.php) (Übersetzung von TAPN in UPPAAL), [GPL v2](http://www.gnu.org/licenses/gpl-2.0.txt) (Verfikation)
 
+![Screenshot](https://raw.github.com/nlohmann/cgv_uebung/master/Tapaal/screen.png "Screenshot")
+
 ## Installation
 
 ### Alle Betriebssysteme
 
 Für Linux, OS X und Windows sind ausführbare Dateien vorhanden.
+
+## Beispiele
+
+### Wechselseitiger Ausschluss
+
+Die Datei `Mutex.xml` enthält das Beispiel für den wechselseitigen Ausschluss, sowie eine Formel für die Safety-Eigenschaft.
