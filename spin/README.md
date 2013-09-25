@@ -101,3 +101,5 @@ Anschließend können die einzelnen Formeln überprüft werden:
     	(2 of 13 states)
     
     pan: elapsed time 0 seconds
+
+Alternativ zur Konsole kann auch das Werkzeug `ispin` genutzt werden, das über eine GUI die Funktionalität von Spin (incl. Simulator) anbietet.
