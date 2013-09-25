@@ -31,11 +31,7 @@ Es werden dann verschiedene Konfigurationen im Verzeichnis `lola-1.17/src` erzeu
 Unter OS X kann LoLA mit dem Paketmanager [Homebrew](http://brew.sh) installiert werden:
 
 ```bash
-# install Homebrew
-ruby -e "$(curl -fsSL https://raw.github.com/mxcl/homebrew/go)"
-# tap science formulas
 brew tap homebrew/science 
-# install LoLA
 brew install lola
 ```
 

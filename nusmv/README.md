@@ -56,11 +56,7 @@ cd nusmv && ./configure --enable-zchaff ; make
 Unter OS X kann NuSMV mit dem Paketmanager [Homebrew](http://brew.sh) installiert werden:
 
 ```bash
-# install Homebrew
-ruby -e "$(curl -fsSL https://raw.github.com/mxcl/homebrew/go)"
-# tap science formulas
 brew tap homebrew/science 
-# install NuSMV
 brew install nusmv
 ```
 

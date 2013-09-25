@@ -42,9 +42,6 @@ make
 Unter OS X kann Spin mit dem Paketmanager [Homebrew](http://brew.sh) installiert werden:
 
 ```bash
-# install Homebrew
-ruby -e "$(curl -fsSL https://raw.github.com/mxcl/homebrew/go)"
-# install Spin
 brew install spin
 ```
 
