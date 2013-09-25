@@ -28,27 +28,33 @@ make
 
 ### Solaris
 
-    tar xfz spin625.tar.gz 
-    cd Spin/Src6.2.5
-    gsed -i 's/y?/spin./g' makefile
-    make spin.o YACC=bison
-    mv spin.tab.h y.tab.h
-    make
+```bash
+tar xfz spin625.tar.gz 
+cd Spin/Src6.2.5
+gsed -i 's/y?/spin./g' makefile
+make spin.o YACC=bison
+mv spin.tab.h y.tab.h
+make
+```
 
 ### OS X
 
 Unter OS X kann Spin mit dem Paketmanager [Homebrew](http://brew.sh) installiert werden:
 
-    # install Homebrew
-    ruby -e "$(curl -fsSL https://raw.github.com/mxcl/homebrew/go)"
-    # install Spin
-    brew install spin
+```bash
+# install Homebrew
+ruby -e "$(curl -fsSL https://raw.github.com/mxcl/homebrew/go)"
+# install Spin
+brew install spin
+```
 
 *Alternativ* kann direkt von den Quellen übersetzt werden:
 
-    tar xfz spin625.tar.gz 
-    cd Spin/Src6.2.5
-    make
+```bash
+tar xfz spin625.tar.gz 
+cd Spin/Src6.2.5
+make
+```
 
 ## Beispiele
 
