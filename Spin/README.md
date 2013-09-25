@@ -9,7 +9,7 @@
 - aktuelle Version: 6.2.5 (Mai 2013)
 - Lizenz: frei für wissenschaftliche Zwecke, ansonsten [SPIN Commercial License](http://www.spinroot.com/spin/spin_license.html)
 
-![Screenshot](https://raw.github.com/nlohmann/cgv_uebung/master/spin/screen.png "Screenshot")
+![Screenshot](https://raw.github.com/nlohmann/cgv_uebung/master/Spin/screen.png "Screenshot")
 
 ## Installation
 

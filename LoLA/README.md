@@ -9,7 +9,7 @@
 - aktuelle Version: 1.17 (September 2013)
 - Lizenz: [GNU Affero GPL](http://www.gnu.org/licenses/agpl-3.0.html)
 
-![Screenshot](https://raw.github.com/nlohmann/cgv_uebung/master/lola/screen.png "Screenshot")
+![Screenshot](https://raw.github.com/nlohmann/cgv_uebung/master/LoLA/screen.png "Screenshot")
 
 ## Installation
 

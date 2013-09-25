@@ -10,7 +10,7 @@
 - aktuelle Version: 2.5.4 (Oktober 2011)
 - Lizenz: [GNU Lesser General Public License (LGPL)](https://www.gnu.org/licenses/lgpl.html)
 
-![Screenshot](https://raw.github.com/nlohmann/cgv_uebung/master/nusmv/screen.png "Screenshot")
+![Screenshot](https://raw.github.com/nlohmann/cgv_uebung/master/NuSMV/screen.png "Screenshot")
 
 ## Installation
 
