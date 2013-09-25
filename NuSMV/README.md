@@ -76,7 +76,7 @@ cd nusmv && ./configure --enable-zchaff ; make
 
 ### Wechselseitiger Ausschluss
 
-Die Datei `mutex.smv` enthält eine Beschreibung des wechselseitigen Ausschlusses zusammen mit mehreren LTL-Formeln.
+Die Datei [`mutex.smv`](examples/mutex.smv) enthält eine Beschreibung des wechselseitigen Ausschlusses zusammen mit mehreren LTL-Formeln.
 
 Die Prozesse werden mit dem Schlüsselwort `process` als asynchrone Prozesse definiert. Da dieses Schlüsselwort veraltet ist (und asynchrone Prozesse in Zukunft nicht mehr unterstützt werden sollen), wird NuSMV beim Start eine Warnung ausgeben. Innerhalb des Prozesses wird das Verhalten in Form einer Zustandsmaschine definiert. Dabei wird ein Anfangszustand (`init`) und die Zustandsübergänge (`next`) angegeben. Die Variable `sem` wird dabei von allen Prozessen geteilt.
 

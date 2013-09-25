@@ -22,4 +22,4 @@ Für Linux, OS X und Windows sind ausführbare Dateien vorhanden.
 
 ### Wechselseitiger Ausschluss
 
-Die Datei [`Mutex.xml`](examples/Mutex.xml) enthält das Beispiel für den wechselseitigen Ausschluss, sowie eine Formel für die Safety-Eigenschaft.
+Die Datei [`Mutex.xml`](examples/Mutex.xml) enthält das Beispiel für den wechselseitigen Ausschluss, sowie eine Formel für die Safety-Eigenschaft. Die Datei ist XML und daher nicht menschenlesbar -- sie sollte mit Tapaal geöffnet und angesehen werden.

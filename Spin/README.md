@@ -57,7 +57,7 @@ make
 
 ### Wechselseitiger Ausschluss
 
-Der wechselseitige Ausschluss ist in der Promela-Datei `mutex.pml` modelliert.
+Der wechselseitige Ausschluss ist in der Promela-Datei [`mutex.pml`](examples/mutex.pml) modelliert.
 
 Für jeden Prozess gibt es einen `proctype` mit dem Namen `user`. Dabei enthält die Variable `_pid` die jeweilige Id (hier 0 und 1), über die der Zustand im Array `pc` zugegriffen wird. Das Schlüsselwort `active [2]` besagt, dass zwei Instanzen ausgeführt werden sollen.
 

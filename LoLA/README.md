@@ -39,11 +39,11 @@ brew install lola
 
 ### Wechselseitiger Ausschluss
 
-Die Datei `mutex.lola` enthält ein Petrinetz, dass das Modell für den wechselseitige Auschluss modelliert. Die Datei `mutex_hl.lola` enthält ein äquivalentes Modell in High-Level-Notation, bei dem die Prozess-Anzahl beliebig eingestellt werden kann.
+Die Datei [`mutex.lola`](examples/mutex.lola) enthält ein Petrinetz, dass das Modell für den wechselseitige Auschluss modelliert. Die Datei [`mutex_hl.lola`](examples/mutex_hl.lola) enthält ein äquivalentes Modell in High-Level-Notation, bei dem die Prozess-Anzahl beliebig eingestellt werden kann.
 
 Zu diesem Netz gibt es verschiedene folgende Formel-Dateien, die mit unterschiedlichen Modi von LoLA ausgewertet werden können:
 
-- `mutex-safety.formula`
+- [`mutex-safety.formula`](examples/mutex-safety.formula)
   
   Diese CTL-Formel drückt aus, dass nur ein Prozess gleichzeitig im kritischen Zustand sein kann.
   
@@ -61,7 +61,7 @@ Zu diesem Netz gibt es verschiedene folgende Formel-Dateien, die mit unterschied
   
   Statt der Forderung, dass einer der Prozesse nicht im kritischen Zustand ist, hätte auch überprüft werden können, ob es einen Zustand gibt, in dem beide Prozesse im kritischen Bereich sind.
 
-- `mutex-liveness.formula`
+- [`mutex-liveness.formula`](examples/mutex-liveness.formula)
 
   Diese CTL-Formel drückt aus, dass jeder Prozess, der den kritischen Zustand betreten will, ihn auch irgendwann betritt.
 
@@ -79,7 +79,7 @@ Zu diesem Netz gibt es verschiedene folgende Formel-Dateien, die mit unterschied
   
   Wegen eines kleinen Bugs in der Formelsprache kann die Originalformel nicht mit einer Implikation ausgedrückt werden. Stattdessen wurde sie mit einer Disjunktion ausgedrückt.
 
-- `mutex-gf.formula`
+- [`mutex-gf.formula`](examples/mutex-gf.formula)
 
   Dieses Zustandsprädikat sagt aus dass sich kein Prozess im kritischen Zustand befindet. Wir wollen überprüfen, ob dies unendlich oft gilt, also den LTL-Operator GF nutzen:
 
