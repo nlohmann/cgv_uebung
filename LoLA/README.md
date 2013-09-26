@@ -24,7 +24,7 @@ cd lola-1.17
 make all-configs
 ```
 
-Es werden dann verschiedene Konfigurationen im Verzeichnis `lola-1.17/src` erzeugt.
+Es werden dann verschiedene Konfigurationen im Verzeichnis `lola-1.17/src` erzeugt. Unter Windows kann LoLA genau so mit [Cygwin](http://www.cygwin.com) installiert werden.
 
 ### OS X
 

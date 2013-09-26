@@ -26,6 +26,19 @@ mv spin.tab.h y.tab.h
 make
 ```
 
+### Windows
+
+Unter Windows kann Spin mit [Cygwin](http://www.cygwin.com) installiert werden:
+
+```bash
+tar xfz spin625.tar.gz 
+cd Spin/Src6.2.5
+sed -i 's/y?/spin./g' makefile
+make spin.o YACC=bison
+mv spin.tab.h y.tab.h
+make
+```
+
 ### Solaris
 
 ```bash

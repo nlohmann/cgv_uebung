@@ -31,6 +31,23 @@ make -C zchaff/zchaff64
 cd nusmv && ./configure --enable-zchaff ; make
 ```
 
+### Windows
+
+Unter Windows kann NuSMV mit [Cygwin](http://www.cygwin.com) installiert werden:
+
+```bash
+tar xfz NuSMV-2.5.4.tar.gz
+cd NuSMV-2.5.4
+sed -i 's/O6/O2/g' cudd-2.4.1.1/Makefile_os_x_64bit
+make -C cudd-2.4.1.1 --file=Makefile_os_x_64bit
+cd zchaff ; ./build.sh ; cd ..
+echo "#include <cstring>" > tmp
+cat zchaff/zchaff64/sat_solver.cpp >> tmp
+mv tmp zchaff/zchaff64/sat_solver.cpp
+make -C zchaff/zchaff64
+cd nusmv && ./configure --enable-zchaff ; make
+```
+
 ### Solaris
 
 ```bash
