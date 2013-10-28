@@ -1,0 +1,32 @@
+PLACE
+        l.0, NC.0, CR.0,
+        l.1, NC.1, CR.1,
+        turn0, turn1;
+
+MARKING
+        l.0: 1, l.1: 1,
+        turn0: 1;
+
+TRANSITION t1.0
+        CONSUME l.0: 1;
+        PRODUCE NC.0: 1;
+
+TRANSITION t2.0
+        CONSUME NC.0: 1, turn0: 1;
+        PRODUCE CR.0: 1, turn0: 1;
+
+TRANSITION t3.0
+        CONSUME CR.0: 1, turn0: 1;
+        PRODUCE l.0: 1, turn1: 1;
+
+TRANSITION t1.1
+        CONSUME l.1: 1;
+        PRODUCE NC.1: 1;
+
+TRANSITION t2.1
+        CONSUME NC.1: 1, turn1: 1;
+        PRODUCE CR.1: 1, turn1: 1;
+
+TRANSITION t3.1
+        CONSUME CR.1: 1, turn1: 1;
+        PRODUCE l.1: 1, turn0: 1;

@@ -1,0 +1,30 @@
+MODULE main
+    VAR
+        turn : {0, 1};
+        proc0: process user(turn, 0);
+        proc1: process user(turn, 1);
+    ASSIGN
+        init(turn) := 0;
+
+LTLSPEC G (proc0.pc != CR | proc1.pc != CR)
+
+MODULE user(turn, id)
+    VAR
+        pc: {l, NC, CR};
+    ASSIGN
+        init(pc) := l;
+        next(pc) :=
+            case
+                pc = l              : {NC, l};
+                pc = NC & turn = id : CR;
+                pc = CR             : l;
+                TRUE                : pc;
+            esac;
+        next(turn) :=
+            case
+                pc = CR : 1 - id;
+                TRUE    : turn;
+            esac;
+
+FAIRNESS
+    running;
